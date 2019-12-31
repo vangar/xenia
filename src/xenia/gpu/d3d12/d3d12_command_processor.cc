@@ -670,7 +670,7 @@ bool D3D12CommandProcessor::SetupContext() {
       context, D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV, 32768);
   // Can't create a shader-visible heap with more than 2048 samplers.
   sampler_heap_pool_ = std::make_unique<ui::d3d12::DescriptorHeapPool>(
-      context, D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER, 2048);
+      context, D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER, 2000);
 
   shared_memory_ = std::make_unique<SharedMemory>(this, memory_);
   if (!shared_memory_->Initialize()) {
